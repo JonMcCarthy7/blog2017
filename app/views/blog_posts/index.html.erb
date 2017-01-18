@@ -1,31 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Blog Posts</h1>
+<div class="jumbotron text-center">
+  <h1>Blog Posts</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Blog entry</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @blog_posts.each do |blog_post| %>
-      <tr>
-        <td><%= link_to blog_post.title, blog_post %></td>
-        <td><%= blog_post.author %></td>
-        <td><%= blog_post.blog_entry.truncate(100) %>[<%= link_to "Read More", blog_post %>]</td>
-        <td><%= link_to 'Show', blog_post %></td>
-        <td><%= link_to 'Edit', edit_blog_post_path(blog_post) %></td>
-        <td><%= link_to 'Destroy', blog_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+            <% @blog_posts.each do |blog_post| %>
 
-<br>
 
-<%= link_to 'New Blog Post', new_blog_post_path %>
+
+              <div class="col-lg-6">
+                <div class="well">
+                  <div>
+                    <h3><%= link_to blog_post.title, blog_post %></h3> </br>
+                    <h5>By: <%= blog_post.author %></h5>
+                    <p class="date"> <%=blog_post.created_at.strftime("%B, %d, %Y") %></p>
+                  </div>
+                  <div>
+                    <p><%= blog_post.blog_entry.truncate(100) %>[<%= link_to "Read More", blog_post %>]</p>
+                    <p>
+                      <%= link_to 'Show', blog_post, class: "btn btn-primary" %>
+                      <%= link_to 'Edit', edit_blog_post_path(blog_post), class: "btn btn-info" %>
+                      <%= link_to 'Destroy', blog_post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+
+            <% end %>
+
+
+
+<%= link_to 'New Blog Post', new_blog_post_path, class: "btn btn-warning" %>
