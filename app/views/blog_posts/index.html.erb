@@ -13,15 +13,17 @@
                 <div class="well">
                   <div class="panel-heading">
                     <h3><%= link_to blog_post.title, blog_post %></h3> </br>
-                    <h5>By: <%= blog_post.user.email %></h5>
+                    <h5>By: <%= blog_post.user.username %></h5>
                     <p class="date"> <%=blog_post.created_at.strftime("%B, %d, %Y") %></p>
                   </div>
                   <div class="panel-body">
                     <p><%= blog_post.blog_entry.truncate(100) %>[<%= link_to "Read More", blog_post %>]</p>
                     <div class="panel-footer">
-                      <%= link_to 'Show', blog_post, class: "btn btn-primary" %>
-                      <%= link_to 'Edit', edit_blog_post_path(blog_post), class: "btn btn-info" %>
-                      <%= link_to 'Destroy', blog_post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+                      
+                      <% if current_user.id == blog_post.user.id %>
+                        <%= link_to 'Edit', edit_blog_post_path(blog_post), class: "btn btn-info" %>
+                        <%= link_to 'Destroy', blog_post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+                      <%end%>
                     </div>
                   </div>
                 </div>
