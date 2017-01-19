@@ -9,7 +9,7 @@
  </p>
 </div>
 <div class='panel-body'>
-by <strong><%= @blog_post..email %></strong>
+by <strong><%= @blog_post.user.email %></strong>
 <p><%= @blog_post.blog_entry %></p>
 </div>
 </div>
@@ -30,7 +30,7 @@ by <strong><%= @blog_post..email %></strong>
 	</div>
 	<% @blog_post.comments.each do |comment| %>
 	<div class='panel-body'>
-		<p><strong><%= comment..email %></strong> said: </p>
+		<p><strong><%= comment.user.email %></strong> said: </p>
 		<p><%= comment.comment_entry %></p>
 		<%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }%>
 	</div>
