@@ -1,4 +1,4 @@
-<!-- <p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Author:</strong>
@@ -8,7 +8,7 @@
 <p>
   <strong>Comment entry:</strong>
   <%= @comment.comment_entry %>
-</p>
+  <p><span class='posted-at'>posted at: <%= @blog_post.created_at.strftime('%m/%d/%Y at %I:%M%p')%></span><br></p>
 
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %> -->
+<%= link_to 'Back', comments_path %>

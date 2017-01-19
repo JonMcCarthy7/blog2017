@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blog</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway" rel="stylesheet">
+
+    <title>LifestyleBlog</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,8 +12,14 @@
   </head>
 
   <body>
-    <div class="container">
-      <%= yield %>
-      </div>
+
+    <div class='container'>
+      <div class="pull-right">
+    <% if user_signed_in? %>
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+    <% end %>
+  </div>
+    <%= yield %>
+  </div>
   </body>
 </html>

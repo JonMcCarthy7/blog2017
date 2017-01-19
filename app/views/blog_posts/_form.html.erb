@@ -11,22 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+  <div class="form-group">
+    <%= f.label :title, class:"sr-only" %>
+    <%= f.text_field :title, class: "form-control", placeholder: 'Post Title' %>
   </div>
 
-  <div class="field">
-    <%= f.label :author %>
-    <%= f.text_field :author %>
+  <div class="form-group">
+     <%= f.label :blog_entry, class:"sr-only" %>
+    <%= f.text_area :blog_entry, class: "form-control", :rows => 20, placeholder: 'Speak Your Mind!' %>
   </div>
 
-  <div class="field">
-    <%= f.label :blog_entry %>
-    <%= f.text_area :blog_entry %>
+  <div class="form-group">
+    <%= f.hidden_field :, value: .id %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

@@ -11,18 +11,18 @@
 
               <div class="col-lg-6">
                 <div class="well">
-                  <div>
+                  <div class="panel-heading">
                     <h3><%= link_to blog_post.title, blog_post %></h3> </br>
-                    <h5>By: <%= blog_post.author %></h5>
+                    <h5>By: <%= blog_post..email %></h5>
                     <p class="date"> <%=blog_post.created_at.strftime("%B, %d, %Y") %></p>
                   </div>
-                  <div>
+                  <div class="panel-body">
                     <p><%= blog_post.blog_entry.truncate(100) %>[<%= link_to "Read More", blog_post %>]</p>
-                    <p>
+                    <div class="panel-footer">
                       <%= link_to 'Show', blog_post, class: "btn btn-primary" %>
                       <%= link_to 'Edit', edit_blog_post_path(blog_post), class: "btn btn-info" %>
                       <%= link_to 'Destroy', blog_post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-                    </p>
+                    </div>
                   </div>
                 </div>
               </div>
