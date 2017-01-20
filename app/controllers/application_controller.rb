@@ -13,9 +13,9 @@ before_action :configure_permitted_parameters, if: :devise_controller?
 
  def configure_permitted_parameters
    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit({ roles: [] }, :email, :password,
-   :password_confirmation, :username) }
+   :password_confirmation, :username, :name, :location) }
 
   devise_parameter_sanitizer.permit(:account_update) { |u| u.permit({ roles: [] }, :email, :password,
-  :password_confirmation, :current_password, :username) }
+  :password_confirmation, :current_password, :username, :name, :location) }
  end
 end

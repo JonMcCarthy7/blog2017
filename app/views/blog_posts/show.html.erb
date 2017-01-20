@@ -9,7 +9,7 @@
  </p>
 </div>
 <div class='panel-body'>
-by <strong><%= @blog_post.user.username %></strong>
+by <strong><%= @blog_post.user.username, user_posts_path(id: blog_post.user.id) %></strong>
 <p><%= @blog_post.blog_entry %></p>
 </div>
 </div>
@@ -30,7 +30,7 @@ by <strong><%= @blog_post.user.username %></strong>
 	</div>
 	<% @blog_post.comments.each do |comment| %>
 	<div class='panel-body'>
-		<p><strong><%= comment.user.username %></strong> said: </p>
+		<p><strong><%= comment.user.username, user_posts_path(id: blog_post.user.id) %></strong> said: </p>
 		<p><%= comment.comment_entry %></p>
 		<%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }%>
 	</div>
@@ -38,6 +38,8 @@ by <strong><%= @blog_post.user.username %></strong>
 </div>
 
 <div>
+<% if current_user.id == blog_post.user.id %>
 <%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
 <%= link_to 'Back', blog_posts_path %>
+<%end%>
 </div>
