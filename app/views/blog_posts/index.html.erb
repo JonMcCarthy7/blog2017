@@ -16,9 +16,11 @@
                   <div class="panel-body">
                     <p><%= blog_post.blog_entry.truncate(100) %>[<%= link_to "Read More", blog_post %>]</p>
                     <div class="panel-footer">
+                      <% if user_signed_in? %>
                       <% if current_user.id == blog_post.user.id %>
                         <%= link_to 'Edit', edit_blog_post_path(blog_post), class: "btn btn-info" %>
                         <%= link_to 'Destroy', blog_post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+                      <%end%>
                       <%end%>
                     </div>
                   </div>

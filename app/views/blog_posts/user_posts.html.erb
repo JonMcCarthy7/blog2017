@@ -1,6 +1,9 @@
-
-<h1><%= @user.username %>'s Page</h1>
-<div class="">
+<div class="col-md-12">
+<h1><%= image_tag(@user.avatar.url(:thumb)) %>
+<%= @user.username %>'s Page
+</h1>
+</div>
+<div class="col-md-12">
   <p><strong>Name: </strong> <%= @user.username %></p>
   <p><strong>Location: </strong> <%= @user.location %></p>
   <p><strong>Birthday: </strong> <%= @user.birthday.strftime("%m/%d/%Y") %></p>
@@ -20,7 +23,7 @@
       <div class="panel-footer">
         <%= link_to 'Show', blog_post, class: "btn btn-primary" %>
         <%= link_to 'Edit', edit_blog_post_path(blog_post), class: "btn btn-info" %>
-        <%= link_to 'Destroy', blog_posts, method: :delete, date: { confirm: 'Are you sure?'}, class: "btn btn-danger"%>
+        <%= link_to 'Destroy', blog_post, method: :delete, date: { confirm: 'Are you sure?'}, class: "btn btn-danger"%>
       </div>
     </div>
   </div>
