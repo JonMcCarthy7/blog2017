@@ -6,12 +6,12 @@
       </div>
     <div class="panel-body">
       <p><span class= "posted-at"><%= blog_post.created_at.strftime('%m/%d/%Y at %l:%M%p') %></span></p>
-      <p><%= blog_post.blog_entry[0..150] %>...[<%= link_to "Read More", blog_post] %></p>
+      <p><%= blog_post.blog_entry[0..150] %>...[<%= link_to "Read More", blog_post %>]</p>
     </div>
     <div class="panel-footer">
       <%= link_to 'Show', blog_post, class: "btn btn-primary" %>
       <%= link_to 'Edit', edit_blog_post_path(blog_post), class: "btn btn-info" %>
-      <%= link_to 'Destroy', blog_posts, method: :delete, date: { confirm: 'Are you sure?'}, class: "btn btn-danger"%>
+      <%= link_to 'Destroy', blog_post, method: :delete, date: { confirm: 'Are you sure?'}, class: "btn btn-danger"%>
     </div>
   </div>
 </div>
